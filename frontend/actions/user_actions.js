@@ -8,7 +8,14 @@ export const requestUsers = () => (dispatch) => {
 	// dispatch(startLoadingAllPokemon());
   // loading
 	return APIUtil.fetchUsers()
-		.then(users => dispatch(receiveUsers(users)));
+		.then(users => {
+      let arr = [];
+      for (let i = 0; i < 3; i++) {
+        arr.push(users[i]);
+      }
+      // console.log(arr);
+      dispatch(receiveUsers(arr));
+    });
 };
 
 export const requestUser = () => (dispatch) => {

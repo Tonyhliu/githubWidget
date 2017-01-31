@@ -1,7 +1,7 @@
 export const fetchUsers = () => {
   return $.ajax({
     method: 'GET',
-    url: 'api/'
+    url: 'https://api.github.com/users?since=135'
   });
 };
 

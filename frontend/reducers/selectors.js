@@ -2,7 +2,7 @@
 // receive state as an argument and receive subset of state
 
 const allUsers = ({ users }) => {
-  console.log(users);
+  // console.log(users);
   return Object.keys(users).map(id => (
     users[id]
   ));

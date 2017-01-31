@@ -38,6 +38,7 @@ const usersReducer = (state = {}, action) => {
       // add it into newState
     case RECEIVE_USERS:
       newState = {};
+      console.log(action);
       action.users.forEach(user => {
         newState[user.id] = user;
       });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Fade } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 class UserItem extends React.Component {
   constructor(props) {
@@ -37,15 +37,17 @@ class UserItem extends React.Component {
           </span>
         </div>
         <div className='user-btn-container'>
-          <Button className='requestUser-btn'
-            bsSize='xs'
-            bsClass='btn'
+          <button className='requestUser-btn'
             disabled={loading}
-            onClick={!loading ? this.removeSingleUser(user) : null}>X</Button>
+            onClick={!loading ? this.removeSingleUser(user) : null}>
+              <i className="fa fa-times" aria-hidden="true">
+              </i>
+          </button> 
         </div>
         <div className='profile-btn-container'>
-          <Button bsSize='xs'
-                href={user.html_url}>
+          <Button bsSize='small'
+                href={user.html_url}
+                bsClass='profile-btn'>
                 <i className="fa fa-github fa-lg github-icon" aria-hidden="true">
                   <span className='profile-span'>Profile</span>
                 </i>

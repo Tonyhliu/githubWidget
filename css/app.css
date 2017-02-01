@@ -1,19 +1,21 @@
 body {
-  font-family: Helvetica, 'Varela Round', sans-serif;
+  font-family: 'Helvetica Neue', Roboto, sans-serif;
 }
 .content-container {
   width: 300px;
-  height: 300px;
+  height: 350px;
   border: 1px solid #e1e8ed;
   border-radius: 5px;
   margin: 0 auto;
   background-color: #fff;
-  padding: 5px 15px 15px 15px;
+  padding: 0px 10px 20px 15px;
 }
 .flex-container {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
+  height: 20%;
 }
 .follow {
   color: #66798b;
@@ -50,13 +52,21 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
+  height: 70%;
+  width: 100%;
 }
 .main-content {
   float: left;
-  display: flex;
+  width: 65%;
+  margin-bottom: 5px;
+  /*display: flex;*/
 }
 .user-btn-container {
   float: right;
+}
+.user-realname {
+  width: 100%;
+  color: #292f33;
 }
 .user-realname, .username {
   font-size: 12px;
@@ -80,6 +90,7 @@ body {
 .user-content {
   margin-bottom: 10px;
   overflow: hidden;
+  height: 30%;
 }
 .img-container {
   float: left;
@@ -104,17 +115,61 @@ body {
     100% { transform: rotate(360deg); }
 }
 .profile-span {
-  margin-left: 5px;
+  margin-left: 6px;
   font-weight: bold;
   font-size: 14px;
-  font-color: #292f33;
+  color: #292f33;
+  letter-spacing: 0.3px;
 }
-.btn {
-  background-color: #fdfefe;
+.requestUser-btn:focus {
+  outline: none;
+}
+.profile-btn {
+  background: #f5f8fa; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#fff, #f5f8fa); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#fff, #f5f8fa); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#fff, #f5f8fa); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#fff,#f5f8fa);
+  background-repeat: no-repeat;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px;
+  color: #66757f;
+  padding: 5px 13px;
+  text-align: center;
+}
+.profile-btn:hover {
+  background: #e1e8ed; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#fff, #e1e8ed); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#fff, #e1e8ed); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#fff, #e1e8ed); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#fff,#e1e8ed);
+}
+.github-icon {
+  color: #1da1f2;
+}
+.btn:hover {
+  background-image: linear-gradient(#fff,#e1e8ed)
+  background-color: #e7edf1;
 }
 .error-container {
   list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.requestUser-btn {
+  border: none;
+  background-color: #fff;
+  display: flex;
+}
+.fa-times {
+  color: #ccd6dd;
+}
+.last-container {
+  display: flex;
+  height: 16%;
+  justify-content: center;
+  align-items: center;
+  margin: 0px -10px -20px -15px;
+  background-color: #f5f8fa;
 }

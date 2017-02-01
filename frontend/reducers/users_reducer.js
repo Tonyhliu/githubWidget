@@ -3,6 +3,7 @@ import { RECEIVE_USERS,
         REFRESH_ALL,
         REMOVE_USER,
         LOADING,
+        RECEIVE_LOCATION,
         ADD_ERROR
         } from '../actions/user_actions';
 import merge from 'lodash/merge';
@@ -24,7 +25,9 @@ import merge from 'lodash/merge';
 // const _defaultState = {};
 const _defaultState = {
   users: [],
-  loading: true
+  loading: true,
+  errors: [],
+  location: []
 };
 
 const usersReducer = (state = _defaultState, action) => {
@@ -34,7 +37,7 @@ const usersReducer = (state = _defaultState, action) => {
       return {
         users: [...state.users, action.user],
         loading: false,
-        errors: []
+        errors: [...state.errors]
       };
     case REFRESH_ALL:
       return _defaultState;
@@ -63,6 +66,10 @@ const usersReducer = (state = _defaultState, action) => {
         users: newStateArr,
         loading: false
       };
+      case RECEIVE_LOCATION:
+        return {
+          location: action.location
+        };
       case LOADING:
         return {
           users: [...state.users],

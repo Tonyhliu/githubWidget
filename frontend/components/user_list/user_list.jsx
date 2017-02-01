@@ -9,7 +9,16 @@ class UserList extends React.Component {
   }
 
   componentDidMount() {
-    const { requestUsers } = this.props;
+    const { requestUsers, requestLocation } = this.props;
+    // navigator.permissions.query({name:'geolocation'})
+    // .then(function(permissionStatus) {
+    //   console.log('geolocation permission state is ', permissionStatus.state);
+    //   requestLocation();
+    //
+    //   permissionStatus.onchange = function() {
+    //     console.log('geolocation permission state has changed to ', this.state);
+    //   };
+    // });
     requestUsers();
   }
 
@@ -20,7 +29,10 @@ class UserList extends React.Component {
   }
 
   render() {
-    const { users, state, removeUser, isLoading } = this.props;
+    const { users, state, removeUser, isLoading, location } = this.props;
+    // console.log(state);
+    // console.log(location);
+
     if (state.loading) {
         return (
           <div className='content-container'>
@@ -60,6 +72,9 @@ class UserList extends React.Component {
               );
             })}
           </ul>
+          <div className='last-container'>
+            {location ? <span>Showing users in {location} </span> : <span> Showing users in City, State </span>}
+          </div>
       </div>
 
     );

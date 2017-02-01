@@ -2,15 +2,13 @@ export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const REMOVE_USER = 'REMOVE_USER';
 export const REFRESH_ALL = 'REFRESH_ALL';
+export const RECEIVE_LOCATION = 'RECEIVE_LOCATION';
 export const LOADING = 'LOADING';
 export const ADD_ERROR = 'ADD_ERROR';
 
 import * as APIUtil from '../util/api_util';
 
 export const requestUsers = () => (dispatch) => {
-	// dispatch(startLoadingAllUser());
-  // loading
-
   // two API calls because USERS api gives no properties
   // that we're interested in. Has to be specific user for
   // the user props to show up.
@@ -41,8 +39,6 @@ export const requestUsers = () => (dispatch) => {
 };
 
 export const requestUser = () => (dispatch) => {
-	// dispatch(startLoadingSingleUser());
-  // loading
 	return APIUtil.fetchUser().then(user => {
 		dispatch(receiveUser(user));
 	}).catch(err => {
@@ -50,6 +46,16 @@ export const requestUser = () => (dispatch) => {
                 err });
   });
 };
+
+export const requestLocation = () => (dispatch) => {
+  return APIUtil.fetchLocation().then(location => {
+    // console.log('from requestLocation');
+    // console.log(location);
+    // dispatch(receiveLocation(location));
+    // dispatch(requestUsers(location));
+  });
+};
+
 
 export const removeUser = (oldUser) => (dispatch) => {
   return APIUtil.fetchUsers().then(users => {
@@ -68,6 +74,11 @@ export const refreshAllUsers = () => (dispatch) => {
   dispatch(refreshAll());
   dispatch(requestUsers());
 };
+
+export const receiveLocation = (location) => ({
+  type: RECEIVE_LOCATION,
+  location
+});
 
 export const replacedUser = (oldUser, user) => ({
   type: REMOVE_USER,

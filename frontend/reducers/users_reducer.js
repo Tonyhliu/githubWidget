@@ -26,8 +26,8 @@ import merge from 'lodash/merge';
 const _defaultState = {
   users: [],
   loading: true,
-  errors: [],
-  location: []
+  errors: []
+  // location: []
 };
 
 const usersReducer = (state = _defaultState, action) => {
@@ -66,10 +66,10 @@ const usersReducer = (state = _defaultState, action) => {
         users: newStateArr,
         loading: false
       };
-      case RECEIVE_LOCATION:
-        return {
-          location: action.location
-        };
+      // case RECEIVE_LOCATION:
+      //   return {
+      //     location: action.location
+      //   };
       case LOADING:
         return {
           users: [...state.users],
@@ -77,7 +77,6 @@ const usersReducer = (state = _defaultState, action) => {
         };
       case ADD_ERROR:
         let response = [action.err.responseJSON.message];
-        // console.log(response);
         return {
           users: [...state.users],
           loading: !state.loading,

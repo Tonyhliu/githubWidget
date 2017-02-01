@@ -47,14 +47,15 @@ export const requestUser = () => (dispatch) => {
   });
 };
 
-export const requestLocation = () => (dispatch) => {
-  return APIUtil.fetchLocation().then(location => {
-    // console.log('from requestLocation');
-    // console.log(location);
-    // dispatch(receiveLocation(location));
-    // dispatch(requestUsers(location));
-  });
-};
+// not implemented
+// export const requestLocation = () => (dispatch) => {
+//   return APIUtil.fetchLocation().then(location => {
+//     console.log('from requestLocation');
+//     console.log(location);
+//     dispatch(receiveLocation(location));
+//     dispatch(requestUsers(location));
+//   });
+// };
 
 
 export const removeUser = (oldUser) => (dispatch) => {
@@ -75,10 +76,10 @@ export const refreshAllUsers = () => (dispatch) => {
   dispatch(requestUsers());
 };
 
-export const receiveLocation = (location) => ({
-  type: RECEIVE_LOCATION,
-  location
-});
+// export const receiveLocation = (location) => ({
+//   type: RECEIVE_LOCATION,
+//   location
+// });
 
 export const replacedUser = (oldUser, user) => ({
   type: REMOVE_USER,

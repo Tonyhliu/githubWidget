@@ -10,15 +10,6 @@ class UserList extends React.Component {
 
   componentDidMount() {
     const { requestUsers, requestLocation } = this.props;
-    // navigator.permissions.query({name:'geolocation'})
-    // .then(function(permissionStatus) {
-    //   console.log('geolocation permission state is ', permissionStatus.state);
-    //   requestLocation();
-    //
-    //   permissionStatus.onchange = function() {
-    //     console.log('geolocation permission state has changed to ', this.state);
-    //   };
-    // });
     requestUsers();
   }
 
@@ -30,12 +21,20 @@ class UserList extends React.Component {
 
   render() {
     const { users, state, removeUser, isLoading, location } = this.props;
-    // console.log(state);
-    // console.log(location);
 
     if (state.loading) {
         return (
           <div className='content-container'>
+            <div className='flex-container'>
+              <h3 className='follow'>Who to follow</h3>
+              <div className='btns'>
+                <small className='separator'>·</small>
+                <small className='refresh-btn'
+                  onClick={this.refresh}>Refresh</small>
+                <small className='separator'>·</small>
+                <small className='viewAll-btn'>View all</small>
+              </div>
+            </div>
             <div className="loader"></div>
           </div>
         );
@@ -51,14 +50,14 @@ class UserList extends React.Component {
     return (
       <div className='content-container'>
         <div className='flex-container'>
-                <h3 className='follow'>Who to follow</h3>
-                <div className='btns'>
-                  <small className='separator'>·</small>
-                  <small className='refresh-btn'
-                    onClick={this.refresh}>Refresh</small>
-                  <small className='separator'>·</small>
-                  <small className='viewAll-btn'>View all</small>
-                </div>
+          <h3 className='follow'>Who to follow</h3>
+          <div className='btns'>
+            <small className='separator'>·</small>
+            <small className='refresh-btn'
+              onClick={this.refresh}>Refresh</small>
+            <small className='separator'>·</small>
+            <small className='viewAll-btn'>View all</small>
+          </div>
         </div>
           <ul className='users-ul'>
             {users.map((user, idx) => {
@@ -73,7 +72,7 @@ class UserList extends React.Component {
             })}
           </ul>
           <div className='last-container'>
-            {location ? <span>Showing users in {location} </span> : <span> Showing users in City, State </span>}
+            {location ? <span>Showing users in {location} </span> : <span> Showing users in <span style={{fontWeight:'bold'}}>City, State</span></span>}
           </div>
       </div>
 

@@ -1,3 +1,63 @@
 body {
-  font-family: 'Varela Round', sans-serif;
+  font-family: Helvetica, 'Varela Round', sans-serif;
+}
+.content-container {
+  width: 300px;
+  height: 300px;
+  /*overflow: hidden;*/
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /*height: 20%;*/
+}
+.follow {
+  color: #66798b;
+  font-size: 18px;
+  font-weight: lighter;
+}
+.refresh-btn, .viewAll-btn {
+  color: #17e648;
+  font-size: 13px;
+  margin-top: 3px;
+}
+.separator {
+  font-size: 10px;
+  margin: 0px 2px 0px 2px;
+}
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+}
+.users-ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.main-content {
+  float: left;
+  display: flex;
+}
+.user-btn-container {
+  float: right;
+}
+.user-realname {
+  font-size: 12px;
+  /*float: left;*/
+  /*line-height: 16px;*/
+}
+.username {
+  font-size: 11px;
+  /*float: left;*/
+  margin: 0;
+}
+.img-container {
+  float: left;
+}
+.profile-btn-container {
+  clear: right;
 }

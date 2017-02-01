@@ -17,6 +17,7 @@ class UserItem extends React.Component {
 
   render() {
     const { user, removeUser } = this.props;
+
     return (
       <li className='user-content'>
         <div className='img-container'>
@@ -25,18 +26,19 @@ class UserItem extends React.Component {
           </img>
         </div>
         <div className='main-content'>
-          <a href={user.html_url}
-            className='user-realname'>
-            <span>
+          <span className='user-realname'>
+            <a href={user.html_url}>
               {user.name}
-            </span>
-          </a>
-          <h4 className='username'>@{user.login}</h4>
+            </a>
+          </span>
+          <span className='username'>
+            @{user.login}
+          </span>
         </div>
         <div className='user-btn-container'>
           <Button className='requestUser-btn'
             bsSize='xsmall'
-            onClick={this.removeSingleUser(user)}>X</Button>
+            onClick={this.removeSingleUser(user)}><span id='close'>X</span></Button>
         </div>
         <div className='profile-btn-container'>
           <Button bsSize='xs'

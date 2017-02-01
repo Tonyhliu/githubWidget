@@ -25,12 +25,8 @@ const _defaultState = {
 
 const usersReducer = (state = _defaultState, action) => {
   Object.freeze(state); // avoid mutating state
-  // let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_USER:
-      // const newUser = {[action.user.id]: action.user};
-      // return merge(newState, newUser);
-      // add it into newState
       return {
         users: [...state.users, action.user]
       };
@@ -42,37 +38,15 @@ const usersReducer = (state = _defaultState, action) => {
         users: [...oldState, ...action.users]
       };
     case REMOVE_USER:
-      // let keys = Object.keys(newState);
-      // let idxToReplace,
-      //     returnState = {};
-      // for (let i = 0; i< keys.length; i++) {
-      //   let currentId = action.oldUser.id.toString();
-      //   if (keys[i] === currentId) {
-      //     idxToReplace = i;
-      //     break;
-      //   }
-      // }
-      //
-      // // keys = [51,52,53];
-      // for (let j = 0; j < keys.length; j++) {
-      //   if (j === idxToReplace) {
-      //     returnState[action.user.id] = action.user;
-      //   } else {
-      //     returnState[keys[j]] = newState[keys[j]];
-      //   }
-      // }
-      // return merge({}, returnState);
       let newStateArr = state.users.slice(),
           idxToReplace;
-      // console.log(state.users);
-      // console.log(action.oldUser);
+          console.log(newStateArr);
       for (let i = 0; i < newStateArr.length; i++) {
         if (newStateArr[i].id === action.oldUser.id) {
           idxToReplace = i;
           break;
         }
       }
-      // console.log(newStateArr);
       for (let j = 0; j < newStateArr.length; j++) {
         if (j === idxToReplace) {
           newStateArr = newStateArr.slice(0, j).concat([action.user]).concat(newStateArr.slice(j+1));
@@ -81,7 +55,6 @@ const usersReducer = (state = _defaultState, action) => {
       return {
         users: newStateArr
       };
-      // console.log(idxToReplace);
     default:
       return state;
   }

@@ -18,7 +18,9 @@ export const requestUsers = () => (dispatch) => {
       var usersArr = [];
       for (let j = 0; j < arr.length; j++) {
         let user = APIUtil.fetchUser(arr[j].login).then(u => {
-          usersArr.push(u);
+          if (!usersArr.includes(u)) {
+            usersArr.push(u); // avoids duplicates
+          }
         }).then(() => {
           if (usersArr.length === 3) {
             dispatch(receiveUsers(usersArr));

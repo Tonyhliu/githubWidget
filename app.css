@@ -4,32 +4,45 @@ body {
 .content-container {
   width: 300px;
   height: 300px;
-  /*overflow: hidden;*/
+  border: 1px solid #e1e8ed;
+  border-radius: 5px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 15px;
 }
 .flex-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /*height: 20%;*/
 }
 .follow {
   color: #66798b;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: lighter;
 }
 .refresh-btn, .viewAll-btn {
   color: #17e648;
   font-size: 13px;
-  margin-top: 3px;
+}
+.btns {
+  margin-top: 10px;
+  margin-left: 5px;
 }
 .separator {
   font-size: 10px;
-  margin: 0px 2px 0px 2px;
+  margin: 0px 5px 0px 5px;
+}
+.separator:first-child {
+  margin: 0px 5px 0px 3px;
+}
+.refresh-btn:hover, viewAll-btn:hover, .username:hover {
+  cursor: pointer;
 }
 .user-avatar {
   width: 48px;
   height: 48px;
   border-radius: 5px;
+  margin-right: 10px;
 }
 .users-ul {
   padding: 0;
@@ -45,15 +58,22 @@ body {
 .user-btn-container {
   float: right;
 }
-.user-realname {
+.user-realname, .username {
   font-size: 12px;
-  /*float: left;*/
-  /*line-height: 16px;*/
+}
+.user-realname {
+  width: 100px;
 }
 .username {
-  font-size: 11px;
-  /*float: left;*/
-  margin: 0;
+  margin-left: 6px;
+  width: 70px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.user-content {
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 .img-container {
   float: left;

@@ -25,11 +25,13 @@ class UserList extends React.Component {
       <div className='content-container'>
         <div className='flex-container'>
           <h3 className='follow'>Who to follow</h3>
-          <small className='separator'>·</small>
-          <small className='refresh-btn'
-                  onClick={this.refresh}>Refresh</small>
-          <small className='separator'>·</small>
-          <small className='viewAll-btn'>View all</small>
+          <div className='btns'>
+            <small className='separator'>·</small>
+            <small className='refresh-btn'
+              onClick={this.refresh}>Refresh</small>
+            <small className='separator'>·</small>
+            <small className='viewAll-btn'>View all</small>
+          </div>
         </div>
         <ul className='users-ul'>
           {users.map((user, idx) => {

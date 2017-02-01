@@ -8,7 +8,7 @@ body {
   border-radius: 5px;
   margin: 0 auto;
   background-color: #fff;
-  padding: 15px;
+  padding: 5px 15px 15px 15px;
 }
 .flex-container {
   display: flex;
@@ -35,7 +35,7 @@ body {
 .separator:first-child {
   margin: 0px 5px 0px 3px;
 }
-.refresh-btn:hover, viewAll-btn:hover, .username:hover {
+.refresh-btn:hover, viewAll-btn:hover, .username:hover, .viewAll-btn {
   cursor: pointer;
 }
 .user-avatar {
@@ -61,15 +61,21 @@ body {
 .user-realname, .username {
   font-size: 12px;
 }
-.user-realname {
-  width: 100px;
-}
-.username {
-  margin-left: 6px;
-  width: 70px;
+.user-realname, .username {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+.user-realname > a {
+  font-weight: bold;
+  color: #292f33;
+}
+.username {
+  margin-left: 3px;
+  color: #889ba6;
+}
+.user-realname > a:hover {
+  color: #17E61D
 }
 .user-content {
   margin-bottom: 10px;
@@ -80,4 +86,35 @@ body {
 }
 .profile-btn-container {
   clear: right;
+}
+.fadeOut {
+  opacity: 0
+}
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: 25% auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.profile-span {
+  margin-left: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  font-color: #292f33;
+}
+.btn {
+  background-color: #fdfefe;
+}
+.error-container {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

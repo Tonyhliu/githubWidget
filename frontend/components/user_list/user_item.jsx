@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Fade } from 'react-bootstrap';
 
 class UserItem extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class UserItem extends React.Component {
   }
 
   render() {
-    const { user, removeUser } = this.props;
+    const { user, removeUser, loading, state } = this.props;
 
     return (
       <li className='user-content'>
@@ -27,22 +27,29 @@ class UserItem extends React.Component {
         </div>
         <div className='main-content'>
           <span className='user-realname'>
-            <a href={user.html_url}>
+            <a href={user.html_url}
+              className='user-realname-link'>
               {user.name}
             </a>
-          </span>
-          <span className='username'>
-            @{user.login}
+            <span className='username'>
+              @{user.login}
+            </span>
           </span>
         </div>
         <div className='user-btn-container'>
           <Button className='requestUser-btn'
-            bsSize='xsmall'
-            onClick={this.removeSingleUser(user)}><span id='close'>X</span></Button>
+            bsSize='xs'
+            bsClass='btn'
+            disabled={loading}
+            onClick={!loading ? this.removeSingleUser(user) : null}>X</Button>
         </div>
         <div className='profile-btn-container'>
           <Button bsSize='xs'
-                href={user.html_url}>Profile</Button>
+                href={user.html_url}>
+                <i className="fa fa-github fa-lg github-icon" aria-hidden="true">
+                  <span className='profile-span'>Profile</span>
+                </i>
+              </Button>
         </div>
       </li>
     );

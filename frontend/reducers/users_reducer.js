@@ -1,7 +1,10 @@
 import { RECEIVE_USERS,
         RECEIVE_USER,
         REFRESH_ALL,
-        REMOVE_USER } from '../actions/user_actions';
+        REMOVE_USER,
+        LOADING,
+        ADD_ERROR
+        } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 // testing
@@ -20,7 +23,8 @@ import merge from 'lodash/merge';
 
 // const _defaultState = {};
 const _defaultState = {
-  users: []
+  users: [],
+  loading: true
 };
 
 const usersReducer = (state = _defaultState, action) => {
@@ -28,19 +32,22 @@ const usersReducer = (state = _defaultState, action) => {
   switch (action.type) {
     case RECEIVE_USER:
       return {
-        users: [...state.users, action.user]
+        users: [...state.users, action.user],
+        loading: false,
+        errors: []
       };
     case REFRESH_ALL:
       return _defaultState;
     case RECEIVE_USERS:
       let oldState = [];
       return {
-        users: [...oldState, ...action.users]
+        users: [...oldState, ...action.users],
+        loading: false
       };
     case REMOVE_USER:
       let newStateArr = state.users.slice(),
           idxToReplace;
-          console.log(newStateArr);
+          // console.log(newStateArr);
       for (let i = 0; i < newStateArr.length; i++) {
         if (newStateArr[i].id === action.oldUser.id) {
           idxToReplace = i;
@@ -53,8 +60,22 @@ const usersReducer = (state = _defaultState, action) => {
         }
       }
       return {
-        users: newStateArr
+        users: newStateArr,
+        loading: false
       };
+      case LOADING:
+        return {
+          users: [...state.users],
+          loading: !state.loading
+        };
+      case ADD_ERROR:
+        let response = [action.err.responseJSON.message];
+        // console.log(response);
+        return {
+          users: [...state.users],
+          loading: !state.loading,
+          errors: response
+        };
     default:
       return state;
   }
